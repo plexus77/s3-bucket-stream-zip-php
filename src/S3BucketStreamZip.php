@@ -121,6 +121,7 @@ class S3BucketStreamZip
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
             curl_exec($ch);
             curl_close($ch);
+            fseek($fp,0);
             $zip->addFileFromStream($fileName, $fp);
             fclose($fp);
         }
